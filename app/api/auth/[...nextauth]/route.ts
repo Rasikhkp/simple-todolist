@@ -3,11 +3,10 @@ import bcrypt from "bcrypt";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import GithubProvider from "next-auth/providers/github";
-import { nanoid } from "@reduxjs/toolkit";
 import { connectDB } from "@/helperFunction/connectDB";
 import prisma from "@/prisma";
 
-export const authOptions: NextAuthOptions = {
+const authOptions: NextAuthOptions = {
 	providers: [
 		CredentialsProvider({
 			name: "credentials",
