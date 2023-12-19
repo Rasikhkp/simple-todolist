@@ -14,7 +14,7 @@ export default function Lists() {
 	const dispatch: AppDispatch = useDispatch();
 	const todos = useSelector(getAllTodos);
 	const session = useSession();
-	console.log("session", typeof session);
+	console.log("session", session);
 	console.log("todos", todos);
 
 	useEffect(() => {
@@ -51,7 +51,7 @@ export default function Lists() {
 							</div>
 						</div>
 					</div>
-					{(session.data as ExtendedSession).id == todo.user.id && (
+					{(session.data as ExtendedSession)?.id == todo.user.id && (
 						<div className="flex mt-1 mr-1">
 							<button onClick={() => dispatch(setIsEdit({ status: true, tempId: todo.id, tempTodo: todo.todo }))} className="w-10 h-10 hover:bg-[#D9D9D9] transition-all rounded-full flex items-center justify-center">
 								<Image src={edit} width={20} height={20} alt="edit" />
